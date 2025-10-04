@@ -31,23 +31,21 @@ npm install
 # or
 yarn install
 ```
-3. Start the development server:
-```bash
-npx react-native start
-```
-> Keep this terminal open — Metro serves your JavaScript bundle to your device.
----
 
 ### Running the App
 
-You can open the app on:
+> We using Expo Bare Workflow.
 
 > Android emulator: via Android Studio or Android Device using USB cable
 
 > In a new terminal, still in the project root:
 
 ```bash
-npx react-native run-android
+cd android
+gradlew clean
+cd ..
+npx expo prebuild --clean -p android
+npx expo run:android
 ```
 
 Development build: for faster performance and native features 
@@ -57,6 +55,32 @@ Development build: for faster performance and native features
 Ensure the Tinder Clone Server is running locally (http://127.0.0.1:8090) to do testing endpoint swagger go to (http://127.0.0.1:8090/api/v1/documentation) or accessible remotely.
 
 > Use Swagger UI or Postman to test the server endpoints before running the app.
+
+### Notes
+```bash
+java --version
+openjdk version "17.0.16" 2025-07-15
+OpenJDK Runtime Environment Temurin-17.0.16+8 (build 17.0.16+8)
+OpenJDK 64-Bit Server VM Temurin-17.0.16+8 (build 17.0.16+8, mixed mode, sharing)
+```
+> Set Gradle Properties in `/android` directory
+```bash
+cd android
+gradlew clean
+set NODE_ENV=development
+```
+![alt text](image.png)
+> wait for downloading until completed.
+```bash
+cd ..
+npx expo prebuild --clean -p android
+npx expo run:android
+```
+> Make sure your android device by using smartphone or AVD device it's authorize . see list of device :
+```bash
+adb devices
+```
+> For this project we use `sdk version 34`
 
 ## Join the community
 
